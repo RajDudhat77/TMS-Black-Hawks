@@ -1,0 +1,18 @@
+﻿<Window x:Class="TMS_Team_BlackHawks.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TMS_Team_BlackHawks"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Admin Login" HorizontalAlignment="Center" Margin="0,183,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="Button_Click"/>
+        <Button Content="Buyer Login" HorizontalAlignment="Center" VerticalAlignment="Top" Height="35" Width="150" Click="Button_Click_Buyer" Margin="0,250,0,0"/>
+        <Button Content="Planner Login" HorizontalAlignment="Center" Margin="0,312,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="Button_Click_Planner"/>
+        <Label x:Name="Heading_Main_Window" Content="Welcome User @ TMS_BlackHaws" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Height="42" Width="382" FontSize="22" FontWeight="ExtraBold" FontStyle="Italic" Foreground="#FF6F4F4F">
+
+        </Label>
+
+    </Grid>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="TMS_Team_BlackHawks.Planner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TMS_Team_BlackHawks"
+        mc:Ignorable="d"
+        Title="Planner" Height="472" Width="839">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="205*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="buyerdata" ItemsSource="{Binding}" Margin="0,23,297,203" Grid.RowSpan="2"></DataGrid>
+        <Label x:Name="Status" Content="Order Status" FontWeight="DemiBold" Grid.RowSpan="2"/>
+        <Button Content="Plan Trip" Margin="618,257,78,87" Click="Button_trip" Grid.Row="1" />
+        <TextBox x:Name="Client" TextWrapping="Wrap" Text="Client Name" Margin="207,224,506,142" Grid.Row="1"/>
+        <TextBox x:Name="tripOrigin" TextWrapping="Wrap" Text="London" Margin="207,268,505,98" Grid.Row="1"/>
+        <TextBox x:Name="tripDestination" TextWrapping="Wrap" Text="Kingston" Margin="207,312,505,54" Grid.Row="1"/>
+        <Label x:Name="Status_Copy" Content="Client:" FontWeight="DemiBold" Margin="103,226,637,140" Grid.Row="1" FontSize="14"/>
+        <Label x:Name="Status_Copy1" Content="Origin:" FontWeight="DemiBold" Margin="103,268,637,98" Grid.Row="1" FontSize="14"/>
+        <Label x:Name="Status_Copy2" Content="Destination:" FontWeight="DemiBold" Margin="103,314,637,52" Grid.Row="1" FontSize="14"/>
+        <GroupBox x:Name="gp1" Header=" " Margin="350,213,274,60" Content="Please choose Transportation Method" Grid.Row="1" />
+        <RadioButton x:Name="LTL" Content="LTL" Margin="360,249,380,123" IsChecked="True" Grid.Row="1"/>
+        <RadioButton x:Name="FTL" Content="FTL" Margin="360,268,380,104" Grid.Row="1"/>
+
+    </Grid>
+
+</Window>
