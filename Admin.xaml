@@ -1,0 +1,80 @@
+﻿<Window x:Class="TMS_Team_BlackHawks.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TMS_Team_BlackHawks"
+        mc:Ignorable="d"
+        Title="Admin" Height="500" Width="800">
+    <Grid>
+        <Menu Name="MenuBar" FontSize="14" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" Width="800" ClipToBounds="True" Background="#FFABABAB" Visibility="Hidden">
+            <MenuItem Name="Configuration" Header="Configuration" Click="Configuration_Click" FontSize="14" Width="104">
+                <MenuItem Name="SelectDir" Header="Select Directories For Log" Click="DirectoriesSelection">
+
+                </MenuItem>
+                <MenuItem Name="DataBaseConfig" Header="Configure DataBase" Click="CommDataBase">
+
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Name="Alter" Header="Alter Data" Click="Alter_Click" FontSize="14">
+                <MenuItem Name="Rate_Fee_Table" Header="Rate Fee Table" Click="Open_rate_fee"/>
+                <MenuItem Name="CarrierData" Header="Carrier Data DataBase" Click="Open_CareerData">
+
+                </MenuItem>
+                <MenuItem Name="RouteTable" Header="Route Table" Click="Open_RouteData">
+
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Name="Backup" Header="Backup" Click="Backup_Event" FontSize="14" >
+
+            </MenuItem>
+        </Menu>
+        <Canvas x:Name="Cv_Directories" Height="460" VerticalAlignment="Top" Margin="0,24,0,0" Visibility="Hidden">
+
+            <Label x:Name="cd_lbl1" Content="Configure Log Directory" Canvas.Left="282" Canvas.Top="75" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" FontFamily="Arial Black"/>
+            <Label x:Name="cd_lbl2" Content="Select Directory for Log File :" Canvas.Left="298" Canvas.Top="160" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <Button x:Name="cd_btn1" Content="Click Here to Change Directory" Canvas.Left="295" Canvas.Top="239" HorizontalAlignment="Center" VerticalAlignment="Top" Width="193" Height="47" Click="cd_btn1_Click"/>
+        </Canvas>
+        <Canvas x:Name="Cv_ConfigDatabase" Height="460" VerticalAlignment="Top" Margin="0,24,0,0" Visibility="Hidden">
+            <Label x:Name="cdb_lbl1" Content="Configure Database" Canvas.Left="301" Canvas.Top="75" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontFamily="Arial Black"/>
+            <Label x:Name="cdb_lbl2" Content="Enter New IP Address :" Canvas.Left="187" Canvas.Top="158" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+            <Button x:Name="cdb_btn1" Content="Submit" Canvas.Left="296" Canvas.Top="306" HorizontalAlignment="Left" VerticalAlignment="Top" Width="193" Height="47" Click="cdb_btn1_Click" FontSize="16"/>
+            <Label x:Name="cdb_lbl2_Copy" Content="Enter New Port :" Canvas.Left="207" Canvas.Top="216" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.718,0.113"/>
+            <TextBox x:Name="cd_tb1" Canvas.Left="414" TextWrapping="Wrap" Canvas.Top="158" Width="158" HorizontalAlignment="Center" VerticalAlignment="Top" Height="29" FontSize="14" TextChanged="cd_tb1_TextChanged"/>
+            <TextBox x:Name="cd_tb2" Canvas.Left="414" TextWrapping="Wrap" Canvas.Top="215" Width="158" Height="29" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+        </Canvas>
+        <Label x:Name="Heading_Admin_Window" Content="&#x9;TMS_BlackHaws" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Height="42" Width="382" FontSize="22" FontWeight="ExtraBold" FontStyle="Italic" Foreground="#FF6F4F4F" Visibility="Hidden"/>
+        <Rectangle x:Name="Rec" HorizontalAlignment="Center" Height="245" Margin="0,151,0,0" Stroke="Black" VerticalAlignment="Top" Width="408" Visibility="Hidden"/>
+        <Label x:Name="Pwd" Content="Password:" HorizontalAlignment="Left" Margin="296,265,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="Username" Content="Username:" HorizontalAlignment="Left" Margin="292,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.522,0.572" Visibility="Hidden"/>
+        <TextBox x:Name="Username_TB" HorizontalAlignment="Left" Margin="405,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="Pwd_TB" HorizontalAlignment="Left" Margin="405,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <Button x:Name="Btn_Login" Content="Login" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Click="Button_Click" Width="74" Visibility="Hidden"/>
+        <Label x:Name="Login_Error" Content=" " HorizontalAlignment="Center" Margin="0,303,0,0" VerticalAlignment="Top" Width="116" Visibility="Hidden" Foreground="Red"/>
+        <Canvas x:Name="Cv_RateFee" Height="460" VerticalAlignment="Top" Margin="0,24,0,0" Visibility="Hidden">
+            <DataGrid x:Name="Rf_DG" Height="463" Width="800" d:ItemsSource="{Binding}" HorizontalAlignment="Center" Canvas.Top="-3" VerticalAlignment="Top"/>
+            <Label x:Name="RF_Query_Lbl" Content="Enter Query to Alter Data :" Canvas.Left="122" Canvas.Top="352" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="RF_Query_TB" Canvas.Left="298" TextWrapping="Wrap" Canvas.Top="337" Width="373" HorizontalAlignment="Center" VerticalAlignment="Top" Height="58"/>
+            <Button x:Name="RF_Submit_BTN" Content="Submit" Canvas.Left="356" Canvas.Top="406" Height="30" Width="88" Click="RF_Submit_BTN_Click"/>
+        </Canvas>
+        <Canvas x:Name="Cv_CareerData" Height="460" VerticalAlignment="Top" Margin="0,24,0,0" Visibility="Hidden">
+            <DataGrid x:Name="CD_DG" Height="460" Width="800" d:ItemsSource="{Binding}" HorizontalAlignment="Center" Canvas.Top="-3" VerticalAlignment="Top"/>
+            <Label x:Name="CD_Query_Lbl" Content="Enter Query to Alter Data :" Canvas.Left="129" Canvas.Top="346" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBox x:Name="CD_Query_TB" Canvas.Left="305" TextWrapping="Wrap" Canvas.Top="331" Width="373" HorizontalAlignment="Left" VerticalAlignment="Center" Height="58"/>
+            <Button x:Name="CD_Submit_BTN" Content="Submit" Canvas.Left="356" Canvas.Top="406" Height="30" Width="88" Click="CD_Submit_BTN_Click"/>
+        </Canvas>
+        <Canvas x:Name="Cv_RouteTbl" Height="460" VerticalAlignment="Top" Margin="0,24,0,0" Visibility="Hidden">
+            <DataGrid x:Name="R_DG" Height="460" Width="800" d:ItemsSource="{Binding}" HorizontalAlignment="Center" Canvas.Top="-3" VerticalAlignment="Top"/>
+            <Label x:Name="RT_Query_Lbl" Content="Enter Query to Alter Data :" Canvas.Left="122" Canvas.Top="345" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="RT_Query_TB" Canvas.Left="298" TextWrapping="Wrap" Canvas.Top="330" Width="373" HorizontalAlignment="Center" VerticalAlignment="Top" Height="58"/>
+            <Button x:Name="RT_Submit_BTN" Content="Submit" Canvas.Left="356" Canvas.Top="406" Height="30" Width="88" Click="RT_Submit_BTN_Click"/>
+        </Canvas>
+
+        <Canvas x:Name="Backup_CV" Height="460" VerticalAlignment="Top" Margin="0,24,0,0" Visibility="Hidden" >
+            <Label x:Name="BKP_Query_Lbl" Content="Enter Query to Backup Data :" Canvas.Left="122" Canvas.Top="212" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBox x:Name="BKP_Query_TB" Canvas.Left="298" TextWrapping="Wrap" Canvas.Top="197" Width="373" HorizontalAlignment="Center" VerticalAlignment="Top" Height="58"/>
+            <Button Content="Submit" Canvas.Left="347" Canvas.Top="308" Height="38" Width="106" Click="Backup_Button"/>
+        </Canvas>
+
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+﻿<Window x:Class="TMS_Team_BlackHawks.Planner_login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TMS_Team_BlackHawks"
+        mc:Ignorable="d"
+        Title="Planner_login" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="Heading_Admin_Window" Content="&#x9; TMS_BlackHaws" HorizontalAlignment="Center" Margin="0,46,0,0" VerticalAlignment="Top" Height="42" Width="382" FontSize="22" FontWeight="ExtraBold" FontStyle="Italic" Foreground="#FF6F4F4F"/>
+        <Rectangle x:Name="Rec" HorizontalAlignment="Center" Height="245" Margin="0,151,0,0" Stroke="Black" VerticalAlignment="Top" Width="408" />
+        <Label x:Name="Pwd" Content="Password:" HorizontalAlignment="Left" Margin="296,265,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Username" Content="Username:" HorizontalAlignment="Left" Margin="292,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.522,0.572" />
+        <TextBox x:Name="Username_TB" HorizontalAlignment="Left" Margin="405,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="Pwd_TB" HorizontalAlignment="Left" Margin="405,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"  />
+        <Button x:Name="Btn_Login" Content="Login" HorizontalAlignment="Center" Margin="0,340,0,0" VerticalAlignment="Top" Click="Button_Click" Width="74"  />
+        <Label x:Name="Heading_Admin_Window_Copy" Content="&#x9;  buyer Login" HorizontalAlignment="Center" Margin="0,88,0,0" VerticalAlignment="Top" Height="42" Width="382" FontSize="22" FontWeight="ExtraBold" FontStyle="Italic" Foreground="#FF2747AC" Background="Transparent"/>
+        <Label x:Name="errorUNamePass" Content="Please Enter Username or password Currectly" HorizontalAlignment="Left" Margin="274,298,0,0" VerticalAlignment="Top" Height="42" Width="382" FontSize="10" FontWeight="ExtraBold" FontStyle="Italic" Foreground="#FFE60E0E" Background="Transparent" FontFamily="Arial Black" Visibility="Hidden"/>
+    </Grid>
+</Window>
